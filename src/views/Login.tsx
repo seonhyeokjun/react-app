@@ -1,7 +1,12 @@
+// import { useHistory } from "react-router-dom";
 import { Container, Box, Button } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 
 function Login() {
+  function loginGoogle(): void {
+    // useHistory.push("/home");
+  }
+
   return (
     <Container component={"main"}>
       <Box
@@ -15,7 +20,11 @@ function Login() {
       >
         <h2>LogIn</h2>
 
-        <Button variant="outlined" startIcon={<GoogleIcon />}>
+        <Button
+          variant="outlined"
+          startIcon={<GoogleIcon />}
+          onClick={loginGoogle}
+        >
           Log with Google
         </Button>
       </Box>

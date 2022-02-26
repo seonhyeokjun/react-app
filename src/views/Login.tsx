@@ -1,10 +1,13 @@
 // import { useHistory } from "react-router-dom";
+import axios from "axios";
 import { Container, Box, Button } from "@mui/material";
 import GoogleIcon from "@mui/icons-material/Google";
 
 function Login() {
-  function loginGoogle(): void {
-    // useHistory.push("/home");
+  function login() {
+    axios.get("/api/google").then((res) => {
+      console.log(res);
+    });
   }
 
   return (
@@ -20,11 +23,7 @@ function Login() {
       >
         <h2>LogIn</h2>
 
-        <Button
-          variant="outlined"
-          startIcon={<GoogleIcon />}
-          onClick={loginGoogle}
-        >
+        <Button variant="outlined" startIcon={<GoogleIcon />} onClick={login}>
           Log with Google
         </Button>
       </Box>

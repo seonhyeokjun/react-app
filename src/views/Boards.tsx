@@ -1,6 +1,6 @@
 import { Container, Box } from "@mui/material";
 
-function Board() {
+function Boards() {
   return (
     <Container component={"div"}>
       <Box>
@@ -10,4 +10,4 @@ function Board() {
   );
 }
 
-export default Board;
+export default Boards;

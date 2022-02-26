@@ -6,7 +6,7 @@ import GoogleIcon from "@mui/icons-material/Google";
 function Login() {
   function login() {
     axios.get("/api/google").then((res) => {
-      console.log(res);
+      console.log(res, "test");
     });
   }
 

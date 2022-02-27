@@ -1,13 +1,16 @@
-// import { useHistory } from "react-router-dom";
-import axios from "axios";
-import { Container, Box, Button } from "@mui/material";
-import GoogleIcon from "@mui/icons-material/Google";
+import { useNavigate } from "react-router-dom";
+import { Container, Box } from "@mui/material";
+import { GoogleLogin } from "react-google-login";
 
 function Login() {
-  function login() {
-    axios.get("/api/google").then((res) => {
-      console.log(res, "test");
-    });
+  const history = useNavigate();
+
+  function successLogin(res: any) {
+    history("/boards");
+  }
+
+  function failLogin(error: any) {
+    console.log(error);
   }
 
   return (
@@ -23,9 +26,13 @@ function Login() {
       >
         <h2>LogIn</h2>
 
-        <Button variant="outlined" startIcon={<GoogleIcon />} onClick={login}>
-          Log with Google
-        </Button>
+        <GoogleLogin
+          clientId={
+            "794794019843-a66l7m21e0k1f1en1jcs5pod0qbjrm6v.apps.googleusercontent.com"
+          }
+          onSuccess={successLogin}
+          onFailure={failLogin}
+        ></GoogleLogin>
       </Box>
     </Container>
   );
